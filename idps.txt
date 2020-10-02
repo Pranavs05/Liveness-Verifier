@@ -1,0 +1,6 @@
+rule active pro match action
+R0 false 100 src=I drop() 
+R1 false 50 src=I,dst=D drop(),add(R0)
+R2 false 50 src=I,dst=F send(),add(R1)
+R3 true 40 dst=I,port=2222 send(),add(R2)
+R4 true 10 * send()

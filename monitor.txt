@@ -1,0 +1,7 @@
+rule active prior match action
+R0 true 100 src=I,0≤c0<2 send()
+R1 true 100 dst=I,0≤c0<2 send()
+R2 true 100 src=I,2≤c0<4 send(rate-limiter)
+R3 true 100 dst=I,2≤c0<4 send(rate-limiter)
+R4 true 100 src=I,4≤c0<6 drop()
+R5 true 100 dst=I,4≤c0<6 drop()

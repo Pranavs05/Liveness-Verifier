@@ -1,0 +1,68 @@
+MODULE R0(r1,r3)
+VAR
+	active:boolean;
+ASSIGN
+	init(active) := TRUE;
+	next(self.active) := case
+		self.active : FALSE;
+		TRUE : self.active;
+		esac;
+	next(r1.active) := case
+		self.active : FALSE;
+		TRUE : r1.active;
+		esac;
+	next(r3.active) := case
+		self.active : FALSE;
+		TRUE : r3.active;
+		esac;
+
+MODULE R1(r0,r4)
+VAR
+	active:boolean;
+ASSIGN
+	init(active) := TRUE;
+	next(r0.active) := case
+		self.active : FALSE;
+		TRUE : r0.active;
+		esac;
+	next(self.active) := case
+		self.active : FALSE;
+		TRUE : self.active;
+		esac;
+	next(r4.active) := case
+		self.active : FALSE;
+		TRUE : r4.active;
+		esac;
+
+MODULE R2()
+VAR
+	active:boolean;
+ASSIGN
+	init(active) := TRUE;
+
+MODULE R3()
+VAR
+	active:boolean;
+ASSIGN
+	init(active) := TRUE;
+
+MODULE R4()
+VAR
+	active:boolean;
+ASSIGN
+	init(active) := TRUE;
+
+MODULE R5()
+VAR
+	active:boolean;
+ASSIGN
+	init(active) := TRUE;
+
+MODULE main
+VAR
+	r0 : process R0(r1,r3);
+	r1 : process R1(r0,r4);
+	r2 : process R2();
+	r3 : process R3();
+	r4 : process R4();
+	r5 : process R5();

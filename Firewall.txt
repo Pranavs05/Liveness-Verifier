@@ -1,0 +1,7 @@
+rule active prio match action
+R0 true 100 src=I,dst=E delete(R0),delete(R1),delete(R3),send(IDPS)
+R1 true 100 src=E,dst=I delete(R0),delete(R1),delete(R4),drop()
+R2 true 50 src=I,dst=E send(IDPS)
+R3 true 50 src=E,dst=I drop()
+R4 true 50 src=E,dst=I send(IDPS)
+R5 true 10 * send(IDPS)
