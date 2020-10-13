@@ -34,7 +34,7 @@ property.txt  --->   Q
 src=I,dst=E;send(IDPS)
 ```
 
-Finally run:
+Run command to generate NUSMV file and boolean formula for the network proposition:
 ```shell
  python3 pysmvc.py Firewall.txt property.txt 
  
@@ -44,7 +44,7 @@ Finally run:
 
 We get the following  Boolean formulae results for the above proposition .
 
-(r0.active=TRUE&TRUE)&r2.active=TRUE&TRUE&FALSE|!(r2.active=TRUE&TRUE)&r5.active=TRUE&TRUE&FALSE|!(r5.active=TRUE&TRUE)&TRUE
+**(r0.active=TRUE&TRUE)&r2.active=TRUE&TRUE&FALSE|!(r2.active=TRUE&TRUE)&r5.active=TRUE&TRUE&FALSE|!(r5.active=TRUE&TRUE)&TRUE**
 
 
 
