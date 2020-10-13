@@ -12,7 +12,10 @@ The verifier converts network tables to LTL file in the .smv format , which can 
 
 
 Example, for a Firewall the input will be two files firewall.txt which has the rules table and atomic proposition txt:
-**Please follow the below format with spacing for the files
+
+
+Follow the below format with spacing for the network table and property files
+
 
 Firewall.txt --->
 ``` 
