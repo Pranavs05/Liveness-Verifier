@@ -81,6 +81,10 @@ The whole property now  in terms of boolean formulae is the obtained as :
 "((!(!(r1.active=TRUE&TRUE)&!(r3.active=TRUE&TRUE)&r4.active=TRUE&TRUE&FALSE|!(r4.active=TRUE&TRUE)&r5.active=TRUE&TRUE&FALSE|!(r5.active=TRUE&TRUE)&TRUE)U(!(r0.active=TRUE&TRUE)&r2.active=TRUE&TRUE&FALSE|!(r2.active=TRUE&TRUE)&r5.active=TRUE&TRUE&FALSE|!(r5.active=TRUE&TRUE)&TRUE))&((!(r0.active=TRUE&TRUE)&r2.active=TRUE&TRUE&FALSE|!(r2.active=TRUE&TRUE)&r5.active=TRUE&TRUE&FALSE|!(r5.active=TRUE&TRUE)&TRUE)->(X(G(!(r1.active=TRUE&TRUE)&!(r3.active=TRUE&TRUE)&r4.active=TRUE&TRUE&FALSE|!(r4.active=TRUE&TRUE)&r5.active=TRUE&TRUE&FALSE|!(r5.active=TRUE&TRUE)&TRUE)))))"
 
 ```
+Setup the NUSMV environement and load the file into NUSMV 
+Instructions to setup: 
+
+```http://nusmv.fbk.eu/NuSMV/userman/v20/nusmv_4.html```
 
 The .smv file is loaded , the model is built and then the above property is simulated , to check if it holds in the network or a counter example  exists where the property does not hold.
 
