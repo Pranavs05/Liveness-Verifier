@@ -7,7 +7,7 @@ The verifier converts network tables to LTL file in the .smv format , which can 
 
 # Input :
 
-* Network Rules table with priority values and counter ranges .
+* Network Rules table with priority values and counter  value ranges .
 * Property and atomixc propositions . 
 
 
