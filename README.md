@@ -82,9 +82,9 @@ The whole property now  in terms of boolean formulae is the obtained as :
 
 ```
 Setup the NUSMV environement and load the file into NUSMV 
-Instructions to setup: 
+Instructions to setup are as follows:
 
-```http://nusmv.fbk.eu/NuSMV/userman/v20/nusmv_4.html```
+***http://nusmv.fbk.eu/NuSMV/userman/v20/nusmv_4.html***
 
 The .smv file is loaded , the model is built and then the above property is simulated , to check if it holds in the network or a counter example  exists where the property does not hold.
 
