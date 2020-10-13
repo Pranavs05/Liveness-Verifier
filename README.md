@@ -42,7 +42,7 @@ Run command to generate NUSMV file and boolean formula for the network propositi
 
 
 
-We get the following  Boolean formulae results for the above proposition .
+We get the following  Boolean formulae results for the above proposition Q.
 
 **(r0.active=TRUE&TRUE)&r2.active=TRUE&TRUE&FALSE|!(r2.active=TRUE&TRUE)&r5.active=TRUE&TRUE&FALSE|!(r5.active=TRUE&TRUE)&TRUE**
 
@@ -53,11 +53,10 @@ Now for the property.txt --->   P
 src=E,dst=I;send(IDPS)     
 ```
 
-# Boolean formulae :
+We get the following  Boolean formulae results for the above proposition P.
 
-```boolean
-!(r1.active=TRUE&TRUE)&!(r3.active=TRUE&TRUE)&r4.active=TRUE&TRUE&FALSE|!(r4.active=TRUE&TRUE)&r5.active=TRUE&TRUE&FALSE|!(r5.active=TRUE&TRUE)&TRUE
-```
+**!(r1.active=TRUE&TRUE)&!(r3.active=TRUE&TRUE)&r4.active=TRUE&TRUE&FALSE|!(r4.active=TRUE&TRUE)&r5.active=TRUE&TRUE&FALSE|!(r5.active=TRUE&TRUE)&TRUE**
+
 
 The whole property in text user input 
 
