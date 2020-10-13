@@ -1,6 +1,5 @@
 # Liveness-Verifier
 
-Liveness Verifier
 
 
 The verifier converts network tables to LTL file in the .smv format , which can then be fed to verification model checker NUSMV and generates the model. It also provides atomic proposition for properties in boolean formulaes , these atomic propositions are combined to generate a "boolean : property which is then verified against the network model in NUSMV . NUSMV then verifies the peroperty successfully or generates a counter example if the property does not hold .
@@ -16,7 +15,7 @@ Example, for a Firewall the input will be two files firewall.txt which has the r
 **Please follow the below format with spacing for the files
 
 
-Firewall.txt --->
+``` Firewall.txt --->
 
 rule active pro match action
 R0 false 100 src=I drop() 
@@ -24,12 +23,13 @@ R1 false 50 src=I,dst=D drop(),add(R0)
 R2 false 50 src=I,dst=F send(),add(R1)
 R3 true 40 dst=I,port=2222 send(),add(R2)
 R4 true 10 * send()
+```
 
 
-property.txt  --->  lets call this as Q
+```property.txt  --->   Q
 
 src=I,dst=E;send(IDPS)
-
+```
 
 
 
