@@ -6,7 +6,7 @@ Liveness Verifier
 This code generates a file in the .smv format , which can then be used to verify properties using the model checker NUSMV. The file is loaded on the checker and the boolean property to be verified is the specified .,then the checker   verifies if the property holds by generating a transition system and running simulations   or gives  a contradiction , when the property does not hold
 
 
-Input :
+#Input :
 
 1: Network table in a particular format
 2: Property to be verified as text 
@@ -47,7 +47,7 @@ Now for the property.txt --->  lets call this as P
 src=E,dst=I;send(IDPS)     
 
 
-Boolean formulae :
+#Boolean formulae :
 
 !(r1.active=TRUE&TRUE)&!(r3.active=TRUE&TRUE)&r4.active=TRUE&TRUE&FALSE|!(r4.active=TRUE&TRUE)&r5.active=TRUE&TRUE&FALSE|!(r5.active=TRUE&TRUE)&TRUE
 
