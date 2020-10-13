@@ -34,7 +34,7 @@ property.txt  --->   Q
 src=I,dst=E;send(IDPS)
 ```
 
-Run command to generate NUSMV file and boolean formula for the network proposition:
+**Run command to generate NUSMV file and boolean formula for the network proposition:**
 ```shell
  python3 pysmvc.py Firewall.txt property.txt 
  
