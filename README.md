@@ -66,14 +66,14 @@ From property P and Q from above we get the follwing boolean formulae :
 
 (¬p∪q)∧(q→Circle Square p)        
 
-* Circle : User operator for next 
-* Square ;User operator for always
+* Circle : User input operation  for next 
+* Square : User input operation  for always
 
 (¬p∪q)∧(q→next always p)
 
 
 
-The whole property now  in terms of boolean formulae:
+The whole property now  in terms of boolean formulae is the obtained as : 
 
 ```
 "((!(!(r1.active=TRUE&TRUE)&!(r3.active=TRUE&TRUE)&r4.active=TRUE&TRUE&FALSE|!(r4.active=TRUE&TRUE)&r5.active=TRUE&TRUE&FALSE|!(r5.active=TRUE&TRUE)&TRUE)U(!(r0.active=TRUE&TRUE)&r2.active=TRUE&TRUE&FALSE|!(r2.active=TRUE&TRUE)&r5.active=TRUE&TRUE&FALSE|!(r5.active=TRUE&TRUE)&TRUE))&((!(r0.active=TRUE&TRUE)&r2.active=TRUE&TRUE&FALSE|!(r2.active=TRUE&TRUE)&r5.active=TRUE&TRUE&FALSE|!(r5.active=TRUE&TRUE)&TRUE)->(X(G(!(r1.active=TRUE&TRUE)&!(r3.active=TRUE&TRUE)&r4.active=TRUE&TRUE&FALSE|!(r4.active=TRUE&TRUE)&r5.active=TRUE&TRUE&FALSE|!(r5.active=TRUE&TRUE)&TRUE)))))"
