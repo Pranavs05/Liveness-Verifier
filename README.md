@@ -40,9 +40,9 @@ Run command to generate NUSMV file and boolean formula for the network propositi
  
 ```
 
+On using the run command again for the above property
 
-
-We get the following  Boolean formulae results for the above proposition Q.
+We get the following  Boolean formulae results for the above proposition Q on using the run command above .
 
 **(r0.active=TRUE&TRUE)&r2.active=TRUE&TRUE&FALSE|!(r2.active=TRUE&TRUE)&r5.active=TRUE&TRUE&FALSE|!(r5.active=TRUE&TRUE)&TRUE**
 
