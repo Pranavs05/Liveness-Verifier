@@ -1,0 +1,7 @@
+FTP monitor
+Phishing/spam detection.
+Simple rate limiter 2.
+Port knocking.
+IP rewrite
+
+Sampling based on the flow size - Sampler Table 2.

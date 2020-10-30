@@ -1,0 +1,26 @@
+SMTP.MTA=A;send().  ----> --- P
+r0.active=TRUE&TRUE&FALSE|!(r0.active=TRUE&TRUE)&TRUE
+
+
+(SMTP.MTA=A),0≤c0<2;send() -------- > 
+r0.active=TRUE&TRUE&TRUE|!(r0.active=TRUE&TRUE)&r1.active=TRUE&r11.active=TRUE&TRUE|!(r1.active=TRUE&r11.active=TRUE)&!(r2.active=TRUE&r21.active=TRUE)&TRUE
+  ------Q
+
+
+
+
+(SMTP.MTA=A),2≤c0<4;drop() ---------M
+!(r0.active=TRUE&TRUE)&!(r1.active=TRUE&r11.active=TRUE)&r2.active=TRUE&r21.active=TRUE&TRUE|!(r2.active=TRUE&r21.active=TRUE)&TRUE
+
+
+P -> (¬QUM)U(-MUQ)
+
+
+"(r0.active=TRUE&TRUE&FALSE|!(r0.active=TRUE&TRUE)&TRUE)->(G((!(r0.active=TRUE&TRUE&TRUE|!(r0.active=TRUE&TRUE)&r1.active=TRUE&r11.active=TRUE&TRUE|!(r1.active=TRUE&r11.active=TRUE)&!(r2.active=TRUE&r21.active=TRUE)&TRUE)|(!(r0.active=TRUE&TRUE)&!(r1.active=TRUE&r11.active=TRUE)&r2.active=TRUE&r21.active=TRUE&TRUE|!(r2.active=TRUE&r21.active=TRUE)&TRUE))|(!(!(r0.active=TRUE&TRUE)&!(r1.active=TRUE&r11.active=TRUE)&r2.active=TRUE&r21.active=TRUE&TRUE|!(r2.active=TRUE&r21.active=TRUE)&TRUE)|(r0.active=TRUE&TRUE&TRUE|!(r0.active=TRUE&TRUE)&r1.active=TRUE&r11.active=TRUE&TRUE|!(r1.active=TRUE&r11.active=TRUE)&!(r2.active=TRUE&r21.active=TRUE)&TRUE))))"
+
+
+
+Output:
+
+NuSMV > check_ltlspec -p "(r0.active=TRUE&TRUE&FALSE|!(r0.active=TRUE&TRUE)&TRUE)->(G((!(r0.active=TRUE&TRUE&TRUE|!(r0.active=TRUE&TRUE)&r1.active=TRUE&r11.active=TRUE&TRUE|!(r1.active=TRUE&r11.active=TRUE)&!(r2.active=TRUE&r21.active=TRUE)&TRUE)|(!(r0.active=TRUE&TRUE)&!(r1.active=TRUE&r11.active=TRUE)&r2.active=TRUE&r21.active=TRUE&TRUE|!(r2.active=TRUE&r21.active=TRUE)&TRUE))|(!(!(r0.active=TRUE&TRUE)&!(r1.active=TRUE&r11.active=TRUE)&r2.active=TRUE&r21.active=TRUE&TRUE|!(r2.active=TRUE&r21.active=TRUE)&TRUE)|(r0.active=TRUE&TRUE&TRUE|!(r0.active=TRUE&TRUE)&r1.active=TRUE&r11.active=TRUE&TRUE|!(r1.active=TRUE&r11.active=TRUE)&!(r2.active=TRUE&r21.active=TRUE)&TRUE))))"
+-- specification ((((r0.active = TRUE & TRUE) & FALSE) | (!(r0.active = TRUE & TRUE) & TRUE)) ->  G ((!((((r0.active = TRUE & TRUE) & TRUE) | (((!(r0.active = TRUE & TRUE) & r1.active = TRUE) & r11.active = TRUE) & TRUE)) | ((!(r1.active = TRUE & r11.active = TRUE) & !(r2.active = TRUE & r21.active = TRUE)) & TRUE)) | (((((!(r0.active = TRUE & TRUE) & !(r1.active = TRUE & r11.active = TRUE)) & r2.active = TRUE) & r21.active = TRUE) & TRUE) | (!(r2.active = TRUE & r21.active = TRUE) & TRUE))) | (!(((((!(r0.active = TRUE & TRUE) & !(r1.active = TRUE & r11.active = TRUE)) & r2.active = TRUE) & r21.active = TRUE) & TRUE) | (!(r2.active = TRUE & r21.active = TRUE) & TRUE)) | ((((r0.active = TRUE & TRUE) & TRUE) | (((!(r0.active = TRUE & TRUE) & r1.active = TRUE) & r11.active = TRUE) & TRUE)) | ((!(r1.active = TRUE & r11.active = TRUE) & !(r2.active = TRUE & r21.active = TRUE)) & TRUE)))))  is true

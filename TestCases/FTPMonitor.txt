@@ -1,0 +1,3 @@
+rule active prio match action
+R0 true 100 dstport=portcontrol,srcIP=A,dstIP=B add(R1),delete(R0),send()
+R1 false 100 srcport=portdata,srcIP=B,dstIP=A send()

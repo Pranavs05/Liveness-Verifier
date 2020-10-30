@@ -1,0 +1,4 @@
+rule active prio match action
+R0 true 100 src=A,0≤c0<2 send()
+R1 true 100 src=A,2≤c0<4 send(rate-limiter)
+R2 true 100 src=A,4≤c0<6 drop()

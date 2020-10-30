@@ -1,0 +1,28 @@
+src=M,dstport=k;add(R1),add(R2).  -----   P
+
+
+r0.active=TRUE&TRUE&FALSE|!(r0.active=TRUE&TRUE)&TRUE
+
+
+
+src=M,dstport=o;send(). -------- Q
+r1.active=TRUE&TRUE&FALSE|!(r1.active=TRUE&TRUE)&TRUE
+
+
+
+
+dst=M,dstport=o;send() ------- M
+r2.active=TRUE&TRUE&FALSE|!(r2.active=TRUE&TRUE)&TRUE
+
+ -PU(QUM)∧ (P->(G(QUM)))
+
+"(!(r0.active=TRUE&TRUE&FALSE|!(r0.active=TRUE&TRUE)&TRUE)|((r1.active=TRUE&TRUE&FALSE|!(r1.active=TRUE&TRUE)&TRUE)|(r2.active=TRUE&TRUE&FALSE|!(r2.active=TRUE&TRUE)&TRUE)))&((r0.active=TRUE&TRUE&FALSE|!(r0.active=TRUE&TRUE)&TRUE)->((r1.active=TRUE&TRUE&FALSE|!(r1.active=TRUE&TRUE)&TRUE)|(r2.active=TRUE&TRUE&FALSE|!(r2.active=TRUE&TRUE)&TRUE)))"
+
+
+Output :
+
+check_ltlspec -p "(!(r0.active=TRUE&TRUE&FALSE|!(r0.active=TRUE&TRUE)&TRUE)|((r1.active=TRUE&TRUE&FALSE|!(r1.active=TRUE&TRUE)&TRUE)|(r2.active=TRUE&TRUE&FALSE|!(r2.active=TRUE&TRUE)&TRUE)))&((r0.active=TRUE&TRUE&FALSE|!(r0.active=TRUE&TRUE)&TRUE)->((r1.active=TRUE&TRUE&FALSE|!(r1.active=TRUE&TRUE)&TRUE)|(r2.active=TRUE&TRUE&FALSE|!(r2.active=TRUE&TRUE)&TRUE)))"
+-- specification ((!(((r0.active = TRUE & TRUE) & FALSE) | (!(r0.active = TRUE & TRUE) & TRUE)) | ((((r1.active = TRUE & TRUE) & FALSE) | (!(r1.active = TRUE & TRUE) & TRUE)) | (((r2.active = TRUE & TRUE) & FALSE) | (!(r2.active = TRUE & TRUE) & TRUE)))) & ((((r0.active = TRUE & TRUE) & FALSE) | (!(r0.active = TRUE & TRUE) & TRUE)) -> ((((r1.active = TRUE & TRUE) & FALSE) | (!(r1.active = TRUE & TRUE) & TRUE)) | (((r2.active = TRUE & TRUE) & FALSE) | (!(r2.active = TRUE & TRUE) & TRUE)))))  is true
+
+
+

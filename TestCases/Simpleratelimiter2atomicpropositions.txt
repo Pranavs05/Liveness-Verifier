@@ -1,0 +1,74 @@
+src=A,0≤c0<2;send()
+
+
+r0.active=TRUE&r01.active=TRUE&TRUE|!(r0.active=TRUE&r01.active=TRUE)&!(r1.active=TRUE&r11.active=TRUE)&!(r2.active=TRUE&r21.active=TRUE)&TRUE
+
+
+src=A,2≤c0<4;send(rate-limiter)
+
+!(r0.active=TRUE&r01.active=TRUE)&r1.active=TRUE&r11.active=TRUE&TRUE|!(r1.active=TRUE&r11.active=TRUE)&!(r2.active=TRUE&r21.active=TRUE)&TRUE
+
+
+
+
+src=A,4≤c0<6;drop()
+
+!(r0.active=TRUE&r01.active=TRUE)&!(r1.active=TRUE&r11.active=TRUE)&r2.active=TRUE&r21.active=TRUE&TRUE|!(r2.active=TRUE&r21.active=TRUE)&TRUE
+
+(P->(X((Q))->G(M)
+
+"((r0.active=TRUE&r01.active=TRUE&TRUE|!(r0.active=TRUE&r01.active=TRUE)&!(r1.active=TRUE&r11.active=TRUE)&!(r2.active=TRUE&r21.active=TRUE)&TRUE)->(X(
+!(r0.active=TRUE&r01.active=TRUE)&r1.active=TRUE&r11.active=TRUE&TRUE|!(r1.active=TRUE&r11.active=TRUE)&!(r2.active=TRUE&r21.active=TRUE)&TRUE)))->(G(!(r0.active=TRUE&r01.active=TRUE)&!(r1.active=TRUE&r11.active=TRUE)&r2.active=TRUE&r21.active=TRUE&TRUE|!(r2.active=TRUE&r21.active=TRUE)&TRUE))"
+
+
+
+Output :
+
+
+
+NuSMV > check_ltlspec -p "((r0.active=TRUE&r01.active=TRUE&TRUE|!(r0.active=TRUE&r01.active=TRUE)&!(r1.active=TRUE&r11.active=TRUE)&!(r2.active=TRUE&r21.active=TRUE)&TRUE)->(X(!(r0.active=TRUE&r01.active=TRUE)&r1.active=TRUE&r11.active=TRUE&TRUE|!(r1.active=TRUE&r11.active=TRUE)&!(r2.active=TRUE&r21.active=TRUE)&TRUE)))->(G(!(r0.active=TRUE&r01.active=TRUE)&!(r1.active=TRUE&r11.active=TRUE)&r2.active=TRUE&r21.active=TRUE&TRUE|!(r2.active=TRUE&r21.active=TRUE)&TRUE))"
+-- specification (((((r0.active = TRUE & r01.active = TRUE) & TRUE) | (((!(r0.active = TRUE & r01.active = TRUE) & !(r1.active = TRUE & r11.active = TRUE)) & !(r2.active = TRUE & r21.active = TRUE)) & TRUE)) ->  X ((((!(r0.active = TRUE & r01.active = TRUE) & r1.active = TRUE) & r11.active = TRUE) & TRUE) | ((!(r1.active = TRUE & r11.active = TRUE) & !(r2.active = TRUE & r21.active = TRUE)) & TRUE))) ->  G (((((!(r0.active = TRUE & r01.active = TRUE) & !(r1.active = TRUE & r11.active = TRUE)) & r2.active = TRUE) & r21.active = TRUE) & TRUE) | (!(r2.active = TRUE & r21.active = TRUE) & TRUE)))  is false
+-- as demonstrated by the following execution sequence
+Trace Description: LTL Counterexample 
+Trace Type: Counterexample 
+  -> State: 1.1 <-
+    c.cur = 0
+    r0.active = TRUE
+    r01.active = TRUE
+    r1.active = TRUE
+    r11.active = FALSE
+    r2.active = TRUE
+    r21.active = FALSE
+  -> Input: 1.2 <-
+    _process_selector_ = r2
+    running = FALSE
+    r21.running = FALSE
+    r2.running = TRUE
+    r11.running = FALSE
+    r1.running = FALSE
+    r01.running = FALSE
+    r0.running = FALSE
+    c.running = FALSE
+  -> State: 1.2 <-
+    c.cur = 4
+    r0.active = FALSE
+    r1.active = FALSE
+    r2.active = FALSE
+  -> Input: 1.3 <-
+  -> State: 1.3 <-
+    r0.active = TRUE
+    r2.active = TRUE
+    r21.active = TRUE
+  -> Input: 1.4 <-
+  -- Loop starts here
+  -> State: 1.4 <-
+    c.cur = 6
+    r0.active = FALSE
+  -> Input: 1.5 <-
+    _process_selector_ = r21
+    r21.running = TRUE
+    r2.running = FALSE
+  -- Loop starts here
+  -> State: 1.5 <-
+  -> Input: 1.6 <-
+  -> State: 1.6 <-
