@@ -96,7 +96,7 @@ Command to verify liveness property against NUSMV network model:
 
 # Results
 
-<img src="https://github.com/Pranavs05/Liveness-Verifier/blob/main/Plots/all3.png" width = "100" ,height = "100">
+<img src="https://github.com/Pranavs05/Liveness-Verifier/blob/main/Plots/all3.png" width = "100" height = "100">
 
 
 
