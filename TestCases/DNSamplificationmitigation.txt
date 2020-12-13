@@ -1,0 +1,5 @@
+rule active prio match action
+R0 true 100 srcip=A,dstip=B,dstport=53 delete(R0),add(R2),add(R3),send()
+R1 true 100 srcport=53 drop()	
+R2 false 100 srcip=A,dstip=B,dstport=53 send()
+R3 false 100 srcip=A,dstip=B,srcport=53 send()

@@ -1,0 +1,56 @@
+
+srcip=A,dstip=B,dstport=53;send()  -- P 
+
+r0.active=TRUE&TRUE&FALSE|!(r0.active=TRUE&TRUE)&r2.active=TRUE&TRUE&FALSE|!(r2.active=TRUE&TRUE)&TRUE
+
+
+srcip=A,dstip=B,dstport=53;send()
+
+r0.active=TRUE&TRUE&FALSE|!(r0.active=TRUE&TRUE)&r2.active=TRUE&TRUE&FALSE|!(r2.active=TRUE&TRUE)&TRUE
+
+
+srcip=A,dstip=B,srcport=53;send() --- Q
+!(r1.active=TRUE&TRUE)&r3.active=TRUE&TRUE&FALSE|!(r3.active=TRUE&TRUE)&TRUE
+
+
+(-P |Q) & (P->(G(P&Q)))
+
+check_ltlspec -p "(!(r0.active=TRUE&TRUE&FALSE|!(r0.active=TRUE&TRUE)&r2.active=TRUE&TRUE&FALSE|!(r2.active=TRUE&TRUE)&TRUE))| !(r1.active=TRUE&TRUE)&r3.active=TRUE&TRUE&FALSE|!(r3.active=TRUE&TRUE)&TRUE)&((r0.active=TRUE&TRUE&FALSE|!(r0.active=TRUE&TRUE)&r2.active=TRUE&TRUE&FALSE|!(r2.active=TRUE&TRUE)&TRUE)->G((!(r1.active=TRUE&TRUE)&r3.active=TRUE&TRUE&FALSE|!(r3.active=TRUE&TRUE)&TRUE)&(r0.active=TRUE&TRUE&FALSE|!(r0.active=TRUE&TRUE)&r2.active=TRUE&TRUE&FALSE|!(r2.active=TRUE&TRUE)&TRUE)))
+
+
+Output :
+
+
+specification (((!((((r0.active = TRUE & TRUE) & FALSE) | (((!(r0.active = TRUE & TRUE) & r2.active = TRUE) & TRUE) & FALSE)) | (!(r2.active = TRUE & TRUE) & TRUE)) | (((!(r1.active = TRUE & TRUE) & r3.active = TRUE) & TRUE) & FALSE)) | (!(r3.active = TRUE & TRUE) & TRUE)) & (((((r0.active = TRUE & TRUE) & FALSE) | (((!(r0.active = TRUE & TRUE) & r2.active = TRUE) & TRUE) & FALSE)) | (!(r2.active = TRUE & TRUE) & TRUE)) ->  G (((((!(r1.active = TRUE & TRUE) & r3.active = TRUE) & TRUE) & FALSE) | (!(r3.active = TRUE & TRUE) & TRUE)) & ((((r0.active = TRUE & TRUE) & FALSE) | (((!(r0.active = TRUE & TRUE) & r2.active = TRUE) & TRUE) & FALSE)) | (!(r2.active = TRUE & TRUE) & TRUE)))))  is false
+-- as demonstrated by the following execution sequence
+Trace Description: LTL Counterexample 
+Trace Type: Counterexample 
+  -> State: 1.1 <-
+    r0.active = TRUE
+    r1.active = TRUE
+    r2.active = FALSE
+    r3.active = FALSE
+  -> Input: 1.2 <-
+    _process_selector_ = r0
+    running = FALSE
+    r3.running = FALSE
+    r2.running = FALSE
+    r1.running = FALSE
+    r0.running = TRUE
+  -- Loop starts here
+  -> State: 1.2 <-
+    r0.active = FALSE
+    r1.active = FALSE
+    r2.active = TRUE
+    r3.active = TRUE
+  -> Input: 1.3 <-
+    _process_selector_ = main
+    running = TRUE
+    r0.running = FALSE
+  -- Loop starts here
+  -> State: 1.3 <-
+  -> Input: 1.4 <-
+  -> State: 1.4 <-
+
+
+Property does not hold
