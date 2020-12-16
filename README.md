@@ -95,7 +95,7 @@ Command to verify liveness property against NUSMV network model:
 **Run command to generate network tables:**
 The network tables are generated using the python files inside the table_generator folder as follows:
 
-python3 [table_generator.py] [no.of_rules]
+```python3 [table_generator.py] [no.of_rules]
 
 Examples:
 
@@ -103,9 +103,13 @@ python3 phishing_table_generator.py 100
 python3 Firewall_table_generator.py 100
 python3 simple_rate_limiter_table_generator.py 100
 
+```
+These commnads generate the datasets of the requirted size which can then be used to perform the  verification process againt the desired network table size . 
 
 
 # Results
+
+I perfromed an analsis of the verification time against the number of rules for values ranging from 50 to 700 rules and obtained these results 
 
 <img src="https://github.com/Pranavs05/Liveness-Verifier/blob/main/Plots/all3.png" >
 <img src="https://github.com/Pranavs05/Liveness-Verifier/blob/main/Plots/port_firewall.png" >
